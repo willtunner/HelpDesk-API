@@ -23,6 +23,12 @@ class Calleds extends Model {
 
     return this;
   }
+
+  static associate(models) {
+    this.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' });
+    this.belongsTo(models.Company, { foreignKey: 'company_id', as: 'company' });
+    this.belongsTo(models.Client, { foreignKey: 'client_id', as: 'client' });
+  }
 }
 
 export default Calleds;

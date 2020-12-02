@@ -1,5 +1,5 @@
-// import * as Yup from 'yup';
-
+import * as Yup from 'yup';
+import { cnpj } from 'cpf-cnpj-validator';
 import Company from '../models/Company';
 
 class CompanyController {
@@ -15,7 +15,7 @@ class CompanyController {
       company,
       phone,
       email,
-      cnpj,
+      cnpj2,
       obs,
       ip_scef,
       mac_scef,
@@ -35,6 +35,27 @@ class CompanyController {
       v_checkout,
       status,
     } = req.body;
+
+    // Valida CNPJ
+    if (!(await cnpj.isValid(cnpj2))) {
+      return res.status(400).json({
+        error: 'erro cnpj',
+      });
+    }
+
+    // Cria o schema para o yup
+    const schema = Yup.object().shape({
+      company: Yup.string().required('Nome a empresa é obrigatório'),
+      cnpj: Yup.string(),
+    });
+
+    // Verifica se o schema do yup é valido
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({
+        error:
+          'Falha na validação, verifique se ao menos o campo empresa está preenchida!',
+      });
+    }
 
     const companys = await Company.create({
       id,
