@@ -33,6 +33,17 @@ class User extends Model {
     return this;
   }
 
+  // Associações
+  static associate(models) {
+    this.belongsToMany(models.Information, {
+      foreignKey: 'user_id',
+      through: 'user_info',
+      as: 'userInfos',
+    });
+
+    this.hasMany(models.UserInfo, { foreignKey: 'user_id', as: 'user1' });
+  }
+
   // verifica se o password confere com o do banco
   checkPassword(password) {
     return bcrypt.compare(password, this.password_hash);

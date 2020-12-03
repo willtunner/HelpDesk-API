@@ -15,6 +15,15 @@ class Information extends Model {
       }
     );
   }
+
+  static associate(models) {
+    this.belongsToMany(models.User, {
+      foreignKey: 'info_id',
+      through: 'user_info',
+      as: 'userInfo',
+    });
+    this.hasMany(models.UserInfo, { foreignKey: 'info_id', as: 'info1' });
+  }
 }
 
 export default Information;
