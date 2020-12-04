@@ -1,5 +1,4 @@
 import * as Yup from 'yup';
-import { cnpj } from 'cpf-cnpj-validator';
 import Company from '../models/Company';
 
 class CompanyController {
@@ -15,7 +14,7 @@ class CompanyController {
       company,
       phone,
       email,
-      cnpj2,
+      cnpj,
       obs,
       ip_scef,
       mac_scef,
@@ -35,13 +34,6 @@ class CompanyController {
       v_checkout,
       status,
     } = req.body;
-
-    // Valida CNPJ
-    if (!(await cnpj.isValid(cnpj2))) {
-      return res.status(400).json({
-        error: 'erro cnpj',
-      });
-    }
 
     // Cria o schema para o yup
     const schema = Yup.object().shape({

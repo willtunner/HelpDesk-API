@@ -17,11 +17,11 @@ Called.init(connection);
 Information.init(connection);
 UserInfo.init(connection);
 
+User.associate(connection.models);
 Company.associate(connection.models);
 Client.associate(connection.models);
-User.associate(connection.models);
+Called.associate(connection.models);
 Information.associate(connection.models);
 UserInfo.associate(connection.models);
-Called.associate(connection.models);
 
 export default connection;

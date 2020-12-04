@@ -36,7 +36,7 @@ class Company extends Model {
   }
 
   static associate(models) {
-    this.hasMany(models.Client, { foreignKey: 'company_id', as: 'client' });
+    this.hasMany(models.Client, { foreignKey: 'company_id', as: 'companies' });
   }
 }
 

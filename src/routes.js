@@ -16,6 +16,8 @@ routes.post('/companys', CompanyController.store);
 routes.get('/companys', CompanyController.index);
 
 routes.post('/client', ClientController.store);
+routes.get('/client', ClientController.index);
+routes.get('/client/:client_id/company', ClientController.list_user);
 
 routes.post('/information', InformationController.store);
 routes.get('/information', InformationController.index);
