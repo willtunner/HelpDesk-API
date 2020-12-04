@@ -7,6 +7,7 @@ import Client from '../app/models/Client';
 import Called from '../app/models/Called';
 import Information from '../app/models/Information';
 import UserInfo from '../app/models/UserInfo';
+import Phonebook from '../app/models/Phonebook';
 
 const connection = new Sequelize(dbConfig);
 
@@ -16,6 +17,7 @@ Client.init(connection);
 Called.init(connection);
 Information.init(connection);
 UserInfo.init(connection);
+Phonebook.init(connection);
 
 User.associate(connection.models);
 Company.associate(connection.models);

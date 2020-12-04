@@ -36,6 +36,7 @@ class Company extends Model {
   }
 
   static associate(models) {
+    // ! o campo 'companies' deve ser o mesmo em cliente
     this.hasMany(models.Client, { foreignKey: 'company_id', as: 'companies' });
   }
 }
