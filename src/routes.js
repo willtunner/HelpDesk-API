@@ -5,6 +5,7 @@ import CompanyController from './app/controllers/CompanyController';
 import ClientController from './app/controllers/ClientController';
 import InformationController from './app/controllers/InformationController';
 import UserInformationController from './app/controllers/UserInfoController';
+import CalledController from './app/controllers/CalledController';
 
 const routes = new Router();
 
@@ -21,5 +22,8 @@ routes.get('/information', InformationController.index);
 
 routes.post('/userinfo', UserInformationController.store);
 // routes.get('/userinfo', UserInformationController.index);
+
+routes.post('/calleds', CalledController.store);
+routes.get('/calleds', CalledController.index);
 
 export default routes;
