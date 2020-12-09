@@ -15,6 +15,12 @@ class User extends Model {
         longitude: Sequelize.STRING,
         latitude: Sequelize.STRING,
         permission: Sequelize.STRING,
+        photo_url: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            return `http://localhost:3000/files/${this.photo}`;
+          },
+        },
       },
       {
         sequelize,

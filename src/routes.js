@@ -1,5 +1,8 @@
 import { Router } from 'express';
 
+import multer from 'multer';
+import uploadConfig from './config/upload';
+
 import UserController from './app/controllers/UserController';
 import CompanyController from './app/controllers/CompanyController';
 import ClientController from './app/controllers/ClientController';
@@ -9,9 +12,10 @@ import CalledController from './app/controllers/CalledController';
 import PhonebookController from './app/controllers/PhonebookController';
 
 const routes = new Router();
+const upload = multer(uploadConfig);
 
 // ? Rotas relacionadas ao usuario
-routes.post('/users', UserController.store);
+routes.post('/users', upload.single('photo'), UserController.store);
 routes.get('/users', UserController.index);
 
 // ? Rotas relacionadas a empresa

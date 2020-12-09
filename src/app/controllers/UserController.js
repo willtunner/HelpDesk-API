@@ -10,6 +10,8 @@ class UserController {
 
   async store(req, res) {
     const { name, user_name, email, password, phone, permission } = req.body;
+    const { filename } = req.file;
+    console.log(filename);
 
     // Cria o schema para o yup
     const schema = Yup.object().shape({
@@ -58,6 +60,7 @@ class UserController {
       user_name,
       email,
       password,
+      photo: filename,
       phone,
       permission,
     });
