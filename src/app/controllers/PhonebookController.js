@@ -2,7 +2,7 @@ import Phonebook from '../models/Phonebook';
 
 class PhonebookController {
   async index(req, res) {
-    const calleds = await Phonebook.findAll();
+    const calleds = await Phonebook.findAndCountAll();
 
     return res.json(calleds);
   }

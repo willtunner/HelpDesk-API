@@ -3,7 +3,7 @@ import Company from '../models/Company';
 
 class CompanyController {
   async index(req, res) {
-    const companies = await Company.findAll();
+    const companies = await Company.findAndCountAll();
 
     return res.json(companies);
   }

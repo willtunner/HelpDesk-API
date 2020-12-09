@@ -2,7 +2,7 @@ import Called from '../models/Called';
 
 class CalledController {
   async index(req, res) {
-    const calleds = await Called.findAll();
+    const calleds = await Called.findAndCountAll();
 
     return res.json(calleds);
   }

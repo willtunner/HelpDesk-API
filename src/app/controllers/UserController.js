@@ -3,7 +3,7 @@ import User from '../models/User';
 
 class UserController {
   async index(req, res) {
-    const users = await User.findAll();
+    const users = await User.findAndCountAll();
 
     return res.json(users);
   }
@@ -11,7 +11,6 @@ class UserController {
   async store(req, res) {
     const { name, user_name, email, password, phone, permission } = req.body;
     const { filename } = req.file;
-    console.log(filename);
 
     // Cria o schema para o yup
     const schema = Yup.object().shape({
@@ -66,6 +65,27 @@ class UserController {
     });
 
     return res.json(user);
+  }
+
+  async update(req, res) {
+    const { name, user_name, email, password, phone, permission } = req.body;
+    const { filename } = req.file;
+    const { user_id } = req.params;
+
+    const users = await User.update(
+      { id: user_id },
+      {
+        name,
+        user_name,
+        email,
+        password,
+        photo: filename,
+        phone,
+        permission,
+      }
+    );
+
+    return res.json(users);
   }
 }
 

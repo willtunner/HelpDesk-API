@@ -3,7 +3,7 @@ import Information from '../models/Information';
 
 class InformationController {
   async index(req, res) {
-    const information = await Information.findAll();
+    const information = await Information.findAndCountAll();
 
     return res.json(information);
   }

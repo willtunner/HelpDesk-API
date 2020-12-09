@@ -17,6 +17,7 @@ const upload = multer(uploadConfig);
 // ? Rotas relacionadas ao usuario
 routes.post('/users', upload.single('photo'), UserController.store);
 routes.get('/users', UserController.index);
+routes.put('/users/:user_id', upload.single('photo'), UserController.update);
 
 // ? Rotas relacionadas a empresa
 routes.post('/companys', CompanyController.store);

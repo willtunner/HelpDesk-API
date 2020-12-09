@@ -3,7 +3,7 @@ import Client from '../models/Client';
 
 class ClientController {
   async index(req, res) {
-    const users = await Client.findAll({
+    const users = await Client.findAndCountAll({
       include: { association: 'companies' },
     });
 
