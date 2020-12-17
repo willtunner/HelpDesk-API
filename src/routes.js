@@ -10,9 +10,13 @@ import InformationController from './app/controllers/InformationController';
 import UserInformationController from './app/controllers/UserInfoController';
 import CalledController from './app/controllers/CalledController';
 import PhonebookController from './app/controllers/PhonebookController';
+import SessionController from './app/controllers/SessionController';
 
 const routes = new Router();
 const upload = multer(uploadConfig);
+
+// ? Rotas relacionada a session/logar
+routes.post('/sessions', SessionController.store);
 
 // ? Rotas relacionadas ao usuario
 routes.post('/users', upload.single('photo'), UserController.store);
