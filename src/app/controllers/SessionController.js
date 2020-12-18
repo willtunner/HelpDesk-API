@@ -7,6 +7,7 @@ class SessionController {
   async store(req, res) {
     const { email, password } = req.body;
 
+
     // ? Verifica se o email existe
     const user = await User.findOne({ where: { email } });
     // ? Se user não existir
@@ -31,6 +32,7 @@ class SessionController {
         name,
         email,
         user_name,
+        password,
       },
       // ? 1º parametro payload: {id}
       // ? 2° parametro https://www.md5online.org/ gerar senha para: 'greencodebr' chave: '5d08dbede74f726bec693fc0a78f04e7'
