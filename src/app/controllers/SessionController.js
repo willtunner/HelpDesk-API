@@ -7,7 +7,6 @@ class SessionController {
   async store(req, res) {
     const { email, password } = req.body;
 
-
     // ? Verifica se o email existe
     const user = await User.findOne({ where: { email } });
     // ? Se user não existir

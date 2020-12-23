@@ -2,6 +2,7 @@ import { Router } from 'express';
 
 import multer from 'multer';
 import uploadConfig from './config/upload';
+// import authMiddleware from './middlewares/auth';
 
 import UserController from './app/controllers/UserController';
 import CompanyController from './app/controllers/CompanyController';
@@ -11,16 +12,26 @@ import UserInformationController from './app/controllers/UserInfoController';
 import CalledController from './app/controllers/CalledController';
 import PhonebookController from './app/controllers/PhonebookController';
 import SessionController from './app/controllers/SessionController';
+import TrackingController from './app/controllers/TrackingController';
 
 const routes = new Router();
 const upload = multer(uploadConfig);
 
 // ? Rotas relacionada a session/logar
 routes.post('/sessions', SessionController.store);
-
 // ? Rotas relacionadas ao usuario
-routes.post('/users', upload.single('photo'), UserController.store);
 routes.get('/users', UserController.index);
+
+// ? Rota teste (apagar depois)
+routes.post('/verifypass', UserController.editprof);
+
+// ? Rotas relacionadas a tracking
+routes.post('/tracking', TrackingController.store);
+
+//! Apartir desse middleware o token é exigido
+// routes.use(authMiddleware);
+
+routes.post('/users', upload.single('photo'), UserController.store);
 routes.put('/users/:user_id', upload.single('photo'), UserController.update);
 
 // ? Rotas relacionadas a empresa

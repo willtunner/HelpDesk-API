@@ -48,6 +48,8 @@ class User extends Model {
     });
 
     this.hasMany(models.UserInfo, { foreignKey: 'user_id', as: 'user1' });
+
+    User.hasMany(models.Tracking);
   }
 
   // verifica se o password confere com o do banco

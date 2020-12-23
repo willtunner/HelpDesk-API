@@ -68,24 +68,57 @@ class UserController {
   }
 
   async update(req, res) {
-    const { name, user_name, email, password, phone, permission } = req.body;
-    const { filename } = req.file;
-    const { user_id } = req.params;
+    // todo req.userId: criado no middleware para pegar o id do token
+    console.log(req.body);
 
-    const users = await User.update(
-      { id: user_id },
-      {
-        name,
-        user_name,
-        email,
-        password,
-        photo: filename,
-        phone,
-        permission,
-      }
-    );
+    // const { email, oldPassword } = req.body;
 
-    return res.json(users);
+    // const user = await User.findByPk(req.userId);
+
+    // if (email !== user.email) {
+    //   // Verifica se o email já existe
+    //   const user_email = await User.findOne({
+    //     where: { email: req.body.email },
+    //   });
+
+    //   if (user_email) {
+    //     return res.status(400).json({ error: 'Email existente!' });
+    //   }
+    // }
+
+    // if (oldPassword && !(await user.checkPassword(oldPassword))) {
+    //   return res.status(400).json({ error: 'Senha incorreta!' });
+    // }
+
+    // const { id, name, user_name } = await user.update(req.body);
+
+    // return res.json({
+    //   id,
+    //   name,
+    //   email,
+    //   user_name,
+    // });
+  }
+
+  async editprof(req, res) {
+    const response = await User.findOne({
+      where: {
+        id: req.body.id,
+        password_hash: req.body.oldPassword,
+      },
+    });
+
+    if (response === null) {
+      res.send(JSON.stringify('Senha antiga não confere!'));
+    } else if (req.body.password === req.body.confPassword) {
+      // todo: atualiza no banco
+      response.password = req.body.password;
+      response.save();
+
+      res.send(response);
+    } else {
+      res.send(JSON.stringify('Nova senha e confirmação não confere!'));
+    }
   }
 }
 
