@@ -25,14 +25,17 @@ class TrackingController {
     });
 
     // todo: Gera o QRCode passando o cod do produto
-    QRCode.toDataURL(req.body.code).then((url) => {
-      QRCode.toFile('../../../uploads/qrcode/code.png', req.body.code);
+    QRCode.toDataURL(req.body.code).then(url => {
+      QRCode.toFile(
+        './uploads/qrcode/code.png', 
+        req.body.code
+        );
 
       res.send(JSON.stringify(url));
     });
 
     // ? manda para o frontend o code
-    return res.json(track);
+    // return res.json(track);
   }
 }
 
