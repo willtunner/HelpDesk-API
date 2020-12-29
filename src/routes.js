@@ -13,6 +13,7 @@ import CalledController from './app/controllers/CalledController';
 import PhonebookController from './app/controllers/PhonebookController';
 import SessionController from './app/controllers/SessionController';
 import TrackingController from './app/controllers/TrackingController';
+import ProductController from './app/controllers/ProductController';
 
 const routes = new Router();
 const upload = multer(uploadConfig);
@@ -24,9 +25,10 @@ routes.get('/users', UserController.index);
 
 // ? Rota teste (apagar depois)
 routes.post('/verifypass', UserController.editprof);
-
 // ? Rotas relacionadas a tracking
 routes.post('/tracking', TrackingController.store);
+// ? Rota para buscar um produto
+routes.post('/searchProduct', ProductController.listOne);
 
 //! Apartir desse middleware o token é exigido
 // routes.use(authMiddleware);

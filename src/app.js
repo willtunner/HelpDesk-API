@@ -21,6 +21,8 @@ class App {
       '/files',
       express.static(path.resolve(__dirname, '..', 'uploads'))
     );
+    // ? usado para o qrcode
+    this.server.use(express.static('uploads'));
   }
 
   routes() {

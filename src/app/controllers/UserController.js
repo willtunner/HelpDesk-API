@@ -69,35 +69,35 @@ class UserController {
 
   async update(req, res) {
     // todo req.userId: criado no middleware para pegar o id do token
-    console.log(req.body);
+    // console.log(req.body);
 
-    // const { email, oldPassword } = req.body;
+    const { email, oldPassword } = req.body;
 
-    // const user = await User.findByPk(req.userId);
+    const user = await User.findByPk(req.userId);
 
-    // if (email !== user.email) {
-    //   // Verifica se o email já existe
-    //   const user_email = await User.findOne({
-    //     where: { email: req.body.email },
-    //   });
+    if (email !== user.email) {
+      // Verifica se o email já existe
+      const user_email = await User.findOne({
+        where: { email: req.body.email },
+      });
 
-    //   if (user_email) {
-    //     return res.status(400).json({ error: 'Email existente!' });
-    //   }
-    // }
+      if (user_email) {
+        return res.status(400).json({ error: 'Email existente!' });
+      }
+    }
 
-    // if (oldPassword && !(await user.checkPassword(oldPassword))) {
-    //   return res.status(400).json({ error: 'Senha incorreta!' });
-    // }
+    if (oldPassword && !(await user.checkPassword(oldPassword))) {
+      return res.status(400).json({ error: 'Senha incorreta!' });
+    }
 
-    // const { id, name, user_name } = await user.update(req.body);
+    const { id, name, user_name } = await user.update(req.body);
 
-    // return res.json({
-    //   id,
-    //   name,
-    //   email,
-    //   user_name,
-    // });
+    return res.json({
+      id,
+      name,
+      email,
+      user_name,
+    });
   }
 
   async editprof(req, res) {
