@@ -10,7 +10,7 @@ class TrackingController {
     const { user_id, code, local } = req.body;
 
     // Todo: Inseri na tabela tracking
-    const track = await Tracking.create({
+    await Tracking.create({
       user_id,
       code,
       local,
@@ -25,11 +25,8 @@ class TrackingController {
     });
 
     // todo: Gera o QRCode passando o cod do produto
-    QRCode.toDataURL(req.body.code).then(url => {
-      QRCode.toFile(
-        './uploads/qrcode/code.png', 
-        req.body.code
-        );
+    QRCode.toDataURL(req.body.code).then((url) => {
+      QRCode.toFile('./uploads/qrcode/code.png', req.body.code);
 
       res.send(JSON.stringify(url));
     });
@@ -37,6 +34,8 @@ class TrackingController {
     // ? manda para o frontend o code
     // return res.json(track);
   }
+
+
 }
 
 export default new TrackingController();

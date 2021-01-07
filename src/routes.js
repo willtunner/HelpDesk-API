@@ -29,6 +29,8 @@ routes.post('/verifypass', UserController.editprof);
 routes.post('/tracking', TrackingController.store);
 // ? Rota para buscar um produto
 routes.post('/searchProduct', ProductController.listOne);
+// ? Rota para editar um produto
+routes.put('/update', ProductController.update);
 
 //! Apartir desse middleware o token é exigido
 // routes.use(authMiddleware);
