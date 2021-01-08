@@ -34,6 +34,10 @@ class TrackingController {
     // ? manda para o frontend o code
     // return res.json(track);
   }
+
+  async update(req,res) {
+    console.log('chegou');
+  }
 }
 
 export default new TrackingController();

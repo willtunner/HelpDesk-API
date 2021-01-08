@@ -31,6 +31,8 @@ routes.post('/tracking', TrackingController.store);
 routes.post('/searchProduct', ProductController.listOne);
 // ? Rota para editar um produto
 routes.put('/update', ProductController.update);
+// ? Rota para editar um produto
+routes.put('/rastreio', TrackingController.update);
 
 //! Apartir desse middleware o token é exigido
 // routes.use(authMiddleware);
