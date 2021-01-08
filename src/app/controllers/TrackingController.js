@@ -34,8 +34,6 @@ class TrackingController {
     // ? manda para o frontend o code
     // return res.json(track);
   }
-
-
 }
 
 export default new TrackingController();
