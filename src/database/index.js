@@ -10,6 +10,7 @@ import UserInfo from '../app/models/UserInfo';
 import Phonebook from '../app/models/Phonebook';
 import Tracking from '../app/models/Tracking';
 import Product from '../app/models/Product';
+import Token from '../app/models/Token';
 
 const connection = new Sequelize(dbConfig);
 
@@ -22,6 +23,7 @@ UserInfo.init(connection);
 Phonebook.init(connection);
 Tracking.init(connection);
 Product.init(connection);
+Token.init(connection);
 
 User.associate(connection.models);
 Company.associate(connection.models);
