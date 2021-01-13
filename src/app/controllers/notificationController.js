@@ -16,6 +16,7 @@ class NotificationController {
       raw: true,
     });
 
+    // eslint-disable-next-line array-callback-return
     response.map((elem, ind, obj) => {
       somePushTokens.push(elem.token);
     });
