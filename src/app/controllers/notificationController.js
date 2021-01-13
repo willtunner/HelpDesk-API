@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-continue */
+/* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
-import Token from '../models/Token';
 import { Expo } from 'expo-server-sdk';
+import Token from '../models/Token';
 // ? PushNotificatios
 const expo = new Expo();
 
@@ -9,7 +12,7 @@ class NotificationController {
     const messages = [];
     const somePushTokens = [];
 
-    let response = await Token.findAll({
+    const response = await Token.findAll({
       raw: true,
     });
 
@@ -59,7 +62,7 @@ class NotificationController {
     (async () => {
       for (const chunk of receiptIdChunks) {
         try {
-          const receipts = await expo.getPushNotificationReceiptsAsync(chunk);
+          const receipts = expo.getPushNotificationReceiptsAsync(chunk);
           console.log(receipts);
 
           for (const receiptId in receipts) {
@@ -80,6 +83,11 @@ class NotificationController {
         }
       }
     })();
+  }
+
+  // ? chama a tela
+  async mensagem(req, res) {
+    res.render('mensagem');
   }
 }
 

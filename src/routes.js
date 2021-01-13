@@ -39,6 +39,8 @@ routes.put('/rastreio', TrackingController.update);
 routes.post('/token', TokenController.store);
 // ? Rota para enviar notificação
 routes.get('/notification', NotificationController.index);
+// ? Rota para enviar mensagem
+routes.get('/', NotificationController.mensagem);
 
 //! Apartir desse middleware o token é exigido
 // routes.use(authMiddleware);

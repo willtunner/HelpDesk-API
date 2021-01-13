@@ -1,6 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import path from 'path';
+import exphbs from 'express-handlebars';
 import routes from './routes';
 
 // Procura ip/infos do servidor
@@ -12,7 +13,6 @@ import './database';
 class App {
   constructor() {
     this.server = express();
-
     this.middlewares();
     this.routes();
   }
@@ -26,6 +26,9 @@ class App {
     );
     // ? usado para o qrcode
     this.server.use(express.static('uploads'));
+    // ? Usar view engine para html
+    this.server.engine('handlebars', exphbs());
+    this.server.set('view engine', 'handlebars');
   }
 
   routes() {
