@@ -3,6 +3,9 @@ import morgan from 'morgan';
 import path from 'path';
 import routes from './routes';
 
+// Procura ip/infos do servidor
+import './config/os';
+
 // importa database
 import './database';
 

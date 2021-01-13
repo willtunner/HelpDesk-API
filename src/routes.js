@@ -15,6 +15,7 @@ import SessionController from './app/controllers/SessionController';
 import TrackingController from './app/controllers/TrackingController';
 import ProductController from './app/controllers/ProductController';
 import TokenController from './app/controllers/TokenController';
+import NotificationController from './app/controllers/notificationController';
 
 const routes = new Router();
 const upload = multer(uploadConfig);
@@ -36,6 +37,8 @@ routes.put('/update', ProductController.update);
 routes.put('/rastreio', TrackingController.update);
 // ? Rota para editar um produto
 routes.post('/token', TokenController.store);
+// ? Rota para enviar notificação
+routes.get('/notification', NotificationController.index);
 
 //! Apartir desse middleware o token é exigido
 // routes.use(authMiddleware);
