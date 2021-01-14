@@ -10,6 +10,8 @@ import './config/os';
 // importa database
 import './database';
 
+const bodyParser = require('body-parser');
+
 class App {
   constructor() {
     this.server = express();
@@ -29,6 +31,9 @@ class App {
     // ? Usar view engine para html
     this.server.engine('handlebars', exphbs());
     this.server.set('view engine', 'handlebars');
+    // ? body-parser enviar dados do front para o back
+    this.server.use(bodyParser.urlencoded({ extended: false }));
+    this.server.use(bodyParser.json());
   }
 
   routes() {

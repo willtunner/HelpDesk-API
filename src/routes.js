@@ -38,7 +38,7 @@ routes.put('/rastreio', TrackingController.update);
 // ? Rota para editar um produto
 routes.post('/token', TokenController.store);
 // ? Rota para enviar notificação
-routes.get('/notification', NotificationController.index);
+routes.post('/notifications', NotificationController.index);
 // ? Rota para enviar mensagem
 routes.get('/', NotificationController.mensagem);
 

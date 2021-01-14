@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-continue */
 /* eslint-disable guard-for-in */
@@ -12,14 +13,18 @@ class NotificationController {
     const messages = [];
     const somePushTokens = [];
 
-    const response = await Token.findAll({
-      raw: true,
-    });
+    // Se for vazio o combobox
+    if (req.body.recipient === '') {
+      const response = await Token.findAll({
+        raw: true,
+      });
 
-    // eslint-disable-next-line array-callback-return
-    response.map((elem, ind, obj) => {
-      somePushTokens.push(elem.token);
-    });
+      response.map((elem, ind, obj) => {
+        somePushTokens.push(elem.token);
+      });
+    } else {
+      somePushTokens.push(req.body.recipient);
+    }
 
     for (const pushToken of somePushTokens) {
       if (!Expo.isExpoPushToken(pushToken)) {
@@ -30,8 +35,8 @@ class NotificationController {
       messages.push({
         to: pushToken,
         sound: 'default',
-        title: 'GreenCode',
-        body: 'Bem vindo ao help desk',
+        title: req.body.title,
+        body: req.body.message,
         data: { withSome: 'data' },
       });
     }
@@ -88,7 +93,14 @@ class NotificationController {
 
   // ? chama a tela
   async mensagem(req, res) {
-    res.render('mensagem');
+    // ? Pega todos os tokens do banco
+    const response = await Token.findAll({
+      raw: true,
+    });
+
+    // ? pega o response coloca em users e envia para view mensagem
+    res.render('mensagem', { users: response });
+    // res.send(response);
   }
 }
 
