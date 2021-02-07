@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-keys */
 module.exports = {
   // ! LOCAL
   /*
@@ -27,8 +28,6 @@ module.exports = {
   },
   // timezone: '-03:00',
 
-<<<<<<< HEAD
-=======
   dialect: 'postgres',
   host: 'ec2-35-175-155-248.compute-1.amazonaws.com',
   username: 'nttjusmvabgthq',
@@ -40,5 +39,4 @@ module.exports = {
     underscoredAll: true, // coloca user_id no banco
   },
   // timezone: '-03:00',
->>>>>>> 36998e895c437f963c2430b45f5d747b75506bbc
 };
