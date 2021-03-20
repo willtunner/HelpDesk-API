@@ -1,15 +1,20 @@
-<h1>Mensagem Push</h1>
+<div id="wrapper">
+  <h1>Mensagem Push</h1>
 
-<form name="form1" id="form1" method="POST" action="/notifications">
-  Titulo: <input type="text" name="title" id="title"><br><br>
-  Destinatário:
-  <select name="recipient" id="recipient">
-    <option value="">Todos</option>
-    {{!-- Pega do banco de dados e coloca aqui --}}
-    {{#users}}
-      <option value="{{token}}">{{token}}</option>
-    {{/users}}
-  </select> <br>
-  Mensagem: <textarea name="message" id="message"></textarea><br>
-  <input type="submit" value="Enviar">
-</form>
+  <div id="sms_div">
+    <form name="form1" id="form1" method="POST" action="/notifications">
+      <input type="text" id="title" placeholder="Titulo" name="title" id="title">
+
+      <label for="styledSelect1" class='custom-select'>
+        <select name="recipient" id="styledSelect1">
+          <option value="">Destinatários</option>
+          {{#users}}
+          <option value="{{token}}">{{token}}</option>
+          {{/users}}
+        </select>
+      </label>
+      <textarea name="message" placeholder="Mensagem" id="message"></textarea><br>
+      <input type="submit" value="Enviar">
+    </form>
+  </div>
+</div>
