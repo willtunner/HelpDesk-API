@@ -10,7 +10,7 @@
 > Cadastro de clientes
 > Cadastro de informações da empresa para os funcionários
 > Cadastro de chamados
-
+> Monitoramento do servidor (quantidade de memoria disponivel, espaço livre no hd, ip do servidor, arquitetura da cpu, quanto tempo o servidor está ligado)
 
 
 ## Imagens do projeto
