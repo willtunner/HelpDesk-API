@@ -1,12 +1,21 @@
-# Projeto FindHero
-> Projeto criado em base de estudo de consumo de api da marvel.<br/>
-> https://developer.marvel.com/
+# Projeto HelpDesk API
+> Esse projeto foi um estudo que fiz na empresa onde trablhei como suporte
+> onde analisei a rotina do nosso trabalho e desenvolvi um sistema em java primeiramente
+> para ajudar a empresa a ter uma visão melhor dos bugs que aconteciam e em quais empresas ligavam mais.<br/>
 
-#### Aplicativo feito com react native, expo, styled components, consumo de api
+
+#### HELPDESK API RECURSOS
+> Cadastro de usuarios com foto gerando url
+> Cadastro de empresas
+> Cadastro de clientes
+> Cadastro de informações da empresa para os funcionários
+> Cadastro de chamados
+
 
 
 ## Imagens do projeto
 ![](assets/01.jpg)
+> http://127.0.0.1:3000/
 ![](assets/02.jpg)
 ![](assets/03.jpg)
 ![](assets/04.jpg)
