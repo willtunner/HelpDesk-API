@@ -1,16 +1,16 @@
 # Projeto HelpDesk API
-> Esse projeto foi um estudo que fiz na empresa onde trablhei como suporte
-> onde analisei a rotina do nosso trabalho e desenvolvi um sistema em java primeiramente
+> Esse projeto foi um estudo que fiz na empresa onde trablhei como suporte<br/>
+> onde analisei a rotina do nosso trabalho e desenvolvi um sistema em java primeiramente<br/>
 > para ajudar a empresa a ter uma visão melhor dos bugs que aconteciam e em quais empresas ligavam mais.<br/>
 
 
 #### HELPDESK API RECURSOS
-> Cadastro de usuarios com foto gerando url
-> Cadastro de empresas
-> Cadastro de clientes
-> Cadastro de informações da empresa para os funcionários
-> Cadastro de chamados
-> Monitoramento do servidor (quantidade de memoria disponivel, espaço livre no hd, ip do servidor, arquitetura da cpu, quanto tempo o servidor está ligado)
+> Cadastro de usuarios com foto gerando url <br/>
+> Cadastro de empresas<br/>
+> Cadastro de clientes<br/>
+> Cadastro de informações da empresa para os funcionários<br/>
+> Cadastro de chamados<br/>
+> Monitoramento do servidor (quantidade de memoria disponivel, espaço livre no hd, ip do servidor, arquitetura da cpu, quanto tempo o servidor está ligado)<br/>
 
 
 ## Imagens do projeto
