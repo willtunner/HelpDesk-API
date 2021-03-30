@@ -1,7 +1,7 @@
 # Projeto HelpDesk API
 > Esse projeto foi um estudo que fiz na empresa onde trablhei como suporte<br/>
 > onde analisei a rotina do nosso trabalho e desenvolvi um sistema em java primeiramente<br/>
-> para ajudar a empresa a ter uma visão melhor dos bugs que aconteciam e em quais empresas ligavam mais.<br/>
+> para ajudar a empresa a ter uma visão melhor dos chamados que ocorriam diariamente que aconteciam e em quais empresas ligavam mais.<br/>
 
 
 #### HELPDESK API RECURSOS
